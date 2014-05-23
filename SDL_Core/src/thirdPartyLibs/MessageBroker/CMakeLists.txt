@@ -28,6 +28,7 @@ set (MESSAGE_BROKER_SERVER_SOURCES
 find_package(OpenSSL REQUIRED)
 
 add_library("MessageBroker" ${MESSAGE_BROKER_SOURCES})
+target_link_libraries("MessageBroker" "ssl" "crypto")
 
 add_library("MessageBrokerClient" ${MESSAGE_BROKER_CLIENT_SOURCES})
 target_link_libraries("MessageBrokerClient" "MessageBroker")
