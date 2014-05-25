@@ -21,3 +21,7 @@ set (SOURCES
 )
 
 add_library("TransportManager" ${SOURCES})
+
+if( BUILD_SHARED_LIBS )
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/libTransportManager.so DESTINATION lib)
+endif()

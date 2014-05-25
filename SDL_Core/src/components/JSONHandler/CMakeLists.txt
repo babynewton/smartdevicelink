@@ -670,3 +670,7 @@ add_library("JSONHandler" ${SOURCES}
 ./src/SDLRPCObjectsImpl/V1/Marshaller.cpp
 ./src/SDLRPCObjectsImpl/V2/Marshaller.cpp
 ./src/RPC2ObjectsImpl/Marshaller.cpp)
+
+if( BUILD_SHARED_LIBS )
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/libJSONHandler.so DESTINATION lib)
+endif()

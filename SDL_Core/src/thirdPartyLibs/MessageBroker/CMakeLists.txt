@@ -29,9 +29,20 @@ find_package(OpenSSL REQUIRED)
 
 add_library("MessageBroker" ${MESSAGE_BROKER_SOURCES})
 target_link_libraries("MessageBroker" "ssl" "crypto")
+if( BUILD_SHARED_LIBS )
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/libMessageBroker.so DESTINATION lib)
+endif()
 
 add_library("MessageBrokerClient" ${MESSAGE_BROKER_CLIENT_SOURCES})
 target_link_libraries("MessageBrokerClient" "MessageBroker")
+if( BUILD_SHARED_LIBS )
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/libMessageBrokerClient.so DESTINATION lib)
+endif()
 
 add_library("MessageBrokerServer" ${MESSAGE_BROKER_SERVER_SOURCES})
 target_link_libraries("MessageBrokerServer" "MessageBroker" ${OPENSSL_LIBRARIES})
+if( BUILD_SHARED_LIBS )
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/libMessageBrokerServer.so DESTINATION lib)
+endif()
+
+

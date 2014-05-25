@@ -10,3 +10,7 @@ set (SOURCES
 )
 
 add_library("Utils" ${SOURCES})
+
+if( BUILD_SHARED_LIBS )
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/libUtils.so DESTINATION lib)
+endif()
