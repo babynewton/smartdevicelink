@@ -12,6 +12,10 @@ set(CMAKE_CXX_FLAGS_RELEASE "-s") #It will be appended to CMAKE_CXX_FLAGS in rel
 
 option( BUILD_SHARED_LIBS "Build all libraries as shared (if ON) or static (if OFF)" OFF)
 
+IF(CMAKE_C_FLAGS_DEBUG)
+    SET( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG_ON -DDEBUG_MB_ON" )
+ENDIF(CMAKE_C_FLAGS_DEBUG)
+
 # Building application
 
 # --- ThirdPartyLibs
