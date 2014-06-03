@@ -30,7 +30,6 @@ set(LIBRARIES
   ${BROKER_LIBRARIES}
   Utils
   encryption
-  jsoncpp
   ConfigProfile
   RequestWatchdog
   MediaManager

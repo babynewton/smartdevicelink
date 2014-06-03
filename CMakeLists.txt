@@ -129,6 +129,16 @@ elseif(WIN32)
 #   Add finding log4cxx here
 endif(UNIX)
 
+# Find jsoncpp
+if(UNIX)
+    find_package(PkgConfig)
+    pkg_check_modules(JSONCPP REQUIRED jsoncpp)
+    include_directories(${JSONCPP_INCLUDE_DIRS})
+    link_directories(${JSONCPP_LIBRARY_DIRS})
+elseif(WIN32)
+#   Add finding jsoncpp here
+endif(UNIX)
+
 
 # --- Interface generator
 
